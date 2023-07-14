@@ -1,0 +1,18 @@
+[package]
+name = "internode"
+version = "0.0.0"
+license = "MPL-2.0"
+authors = ["Sʜɪᴍᴜʀᴀ Yū <mail@yuhr.org>"]
+description = "Smart references to your graph nodes."
+readme = "README.md"
+repository = "https://github.com/yuhr/internode"
+categories = ["data-structures", "rust-patterns"]
+keywords = ["graph", "tree"]
+exclude = [".*", "*.toml", "justfile"]
+edition = "2021"
+
+[lib]
+doctest = false
+
+[dependencies]
+genawaiter = { version = "0.99.1", default-features = false }
