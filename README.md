@@ -21,7 +21,7 @@ Smart references to your graph nodes.
 
 ## Usage
 
-At first, define the shape of your nodes. In this example, we'll use a simple implementation that holds a pair of lists that represents in- and out-neighbors. The important point here is, **inter-node references should be held through `Internode`**:
+At first, define the shape of your nodes. In this example, we'll simply use a pair of `Vec`s that represents in- and out-neighbors to create directed graphs (for undirected graphs, just having a single `Vec` would be sufficient). The important point here is, **inter-node references should be held through `Internode`**:
 
 ```rust
 use internode::*;
@@ -39,7 +39,11 @@ impl Entity {
 		to.lock().unwrap().preds.push(from.clone());
 	}
 }
+```
 
+And implement `Neighbors` trait for the type (for undirected graphs, you can just return an empty iterator for `incoming` xor `outgoing`):
+
+```rust
 impl Neighbors for Entity {
 	type Iter<'a> = std::iter::Cloned<std::slice::Iter<'a, Internode<Entity>>>;
 	fn outgoing(&self) -> Self::Iter<'_> { self.succs.iter().cloned() }
