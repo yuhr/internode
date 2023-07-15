@@ -10,7 +10,7 @@ use super::*;
 ///
 /// Implements [`Deref`] and [`DerefMut`], so users can think of this as just [`MutexGuard<T>`].
 ///
-/// Returned by [`Node::value`] and [`Internode::lock`].
+/// Returned by [`Node::lock`] and [`Internode::lock`].
 #[derive(Debug)]
 pub struct InternodeMutexGuard<'a, T: Neighbors> {
 	guard: MutexGuard<'a, Option<T>>,
