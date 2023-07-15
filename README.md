@@ -2,7 +2,7 @@
 
 Smart references to your graph nodes.
 
-<img src="logo.png" alt="internode" width="200em">
+<img src="logo.png" alt="internode" width="200">
 
 [![crates.io](https://img.shields.io/crates/v/internode)](https://crates.io/crates/internode) [![docs.rs](https://img.shields.io/docsrs/internode)](https://docs.rs/internode/latest/internode/) [![License](https://img.shields.io/github/license/yuhr/internode)](https://github.com/yuhr/internode/blob/develop/LICENSE)
 
@@ -61,7 +61,7 @@ let (a_weak, b) = {
 	(a_weak, b)
 	// `a` is dropped here.
 };
-// Downgrading `Internode` yields `Option<Node>`.
+// Upgrading `Internode` yields `Option<Node>`.
 assert!(a_weak.upgrade().is_some());
 // Dropping the last owning reference to the graph drops all nodes.
 drop(b);
